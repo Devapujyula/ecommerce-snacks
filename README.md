@@ -1,5 +1,7 @@
 # 🌶️ Konaseema Snacks
 
+> **Portfolio Notice:** This is a client project built by [Prakash Devapujyula](https://github.com/prakashdsp7777) as a freelance/professional engagement. The repository is shared here solely as a portfolio reference to demonstrate the work done. This project has been delivered to the client and is **not intended for live deployment** by anyone other than the original client.
+
 A full-stack e-commerce web application for showcasing and selling traditional Konaseema snacks, sweets, pickles, and karampodisonline — built with **Next.js 14**.
 
 ---
