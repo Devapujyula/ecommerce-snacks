@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^14.2.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "bootstrap": "^5.3.3",
-    "mysql2": "^3.9.7",
-    "razorpay": "^2.9.4"
+    "next": "^14.2.3",
+    "pg": "^8.21.0",
+    "razorpay": "^2.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

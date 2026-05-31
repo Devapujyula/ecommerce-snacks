@@ -10,7 +10,7 @@ export async function POST(request) {
 
   return new Promise((resolve) => {
     db.query(
-      'INSERT INTO orders (user_name, total, status) VALUES (?, ?, ?)',
+      'INSERT INTO orders (user_name, total, status) VALUES ($1, $2, $3) RETURNING id',
       [name, total, 'PLACED'],
       (err, result) => {
         if (err) {
@@ -19,10 +19,10 @@ export async function POST(request) {
           return;
         }
 
-        const orderId = result.insertId;
+        const orderId = result.rows[0].id;
         cart.forEach((item) => {
           db.query(
-            'INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)',
+            'INSERT INTO order_items (order_id, product_id, quantity) VALUES ($1, $2, $3)',
             [orderId, item.id, item.quantity]
           );
         });
