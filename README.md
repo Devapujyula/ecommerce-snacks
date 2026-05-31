@@ -1,8 +1,12 @@
 # 🌶️ Konaseema Snacks
 
-> **Portfolio Notice:** This is a client project built by [Prakash Devapujyula](https://github.com/prakashdsp7777) as a freelance/professional engagement. The repository is shared here solely as a portfolio reference to demonstrate the work done. This project has been delivered to the client and is **not intended for live deployment** by anyone other than the original client.
+> **Portfolio Notice:** This is a client project built by [Prakash Devapujyula](https://github.com/Devapujyula) as a freelance/professional engagement. The repository is shared here solely as a portfolio reference to demonstrate the work done.
 
-A full-stack e-commerce web application for showcasing and selling traditional Konaseema snacks, sweets, pickles, and karampodisonline — built with **Next.js 14**.
+A full-stack e-commerce web application for showcasing and selling traditional Konaseema snacks, sweets, pickles, and karampodis online — built with **Next.js 14**.
+
+## 🔗 Live Demo
+
+**[👉 Click here to view the live app](https://ecommerce-snacks-git-main-devapujyulas-projects.vercel.app)**
 
 ---
 
@@ -12,7 +16,7 @@ A full-stack e-commerce web application for showcasing and selling traditional K
 - ➕ Inline **quantity stepper** on each product card (Swiggy-style)
 - 🛒 **Persistent cart** using localStorage
 - 💳 **Razorpay** payment gateway integration (test mode)
-- 📦 Order saving to **MySQL** database
+- 📦 Order saving to **PostgreSQL** database (Supabase)
 - 📱 Fully **mobile responsive** with Bootstrap 5
 - 🌿 **Our Story** section in Telugu
 - 🔒 Sticky navbar with live cart count
@@ -25,9 +29,10 @@ A full-stack e-commerce web application for showcasing and selling traditional K
 |---|---|
 | Frontend | Next.js 14 (App Router), React 18 |
 | Styling | Bootstrap 5, Custom CSS |
-| Backend | Next.js API Routes (replaces Express) |
-| Database | MySQL 2 |
+| Backend | Next.js API Routes |
+| Database | PostgreSQL (Supabase) |
 | Payments | Razorpay |
+| Hosting | Vercel |
 
 ---
 
@@ -52,21 +57,21 @@ konaseema-snacks/
 ├── context/
 │   └── CartContext.jsx         # Global cart state
 ├── lib/
-│   └── db.js                   # MySQL singleton connection
+│   └── db.js                   # PostgreSQL connection (Supabase)
 ├── public/
 │   └── images/                 # Product images (.jpg)
-└── .env.local                  # Environment variables
+└── .env.local                  # Environment variables (not committed)
 ```
 
 ---
 
-## ⚙️ Getting Started
+## ⚙️ Getting Started (Local Development)
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/konaseema-snacks.git
-cd konaseema-snacks
+git clone https://github.com/Devapujyula/ecommerce-snacks.git
+cd ecommerce-snacks
 ```
 
 ### 2. Install dependencies
@@ -80,59 +85,14 @@ npm install
 Create a `.env.local` file in the root:
 
 ```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=konaseema_db
+DATABASE_URL=your_supabase_postgresql_connection_string
 
 RAZORPAY_KEY_ID=your_razorpay_key_id
 RAZORPAY_KEY_SECRET=your_razorpay_key_secret
 NEXT_PUBLIC_RAZORPAY_KEY_ID=your_razorpay_key_id
 ```
 
-### 4. Set up MySQL database
-
-```sql
-CREATE DATABASE konaseema_db;
-
-USE konaseema_db;
-
-CREATE TABLE products (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  category VARCHAR(50),
-  sub_category VARCHAR(50),
-  price DECIMAL(10,2),
-  image VARCHAR(100),
-  description TEXT
-);
-
-CREATE TABLE orders (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_name VARCHAR(100),
-  total DECIMAL(10,2),
-  status VARCHAR(20),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE order_items (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  order_id INT,
-  product_id INT,
-  quantity INT,
-  FOREIGN KEY (order_id) REFERENCES orders(id)
-);
-```
-
-### 5. Add product images
-
-Place all product `.jpg` images inside:
-
-```
-public/images/
-```
-
-### 6. Run the development server
+### 4. Run the development server
 
 ```bash
 npm run dev
@@ -152,17 +112,6 @@ Use the following test card for payments:
 | Expiry | Any future date |
 | CVV | Any 3 digits |
 | OTP | `1234` |
-
----
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Push code to GitHub
-2. Connect repo at [vercel.com](https://vercel.com)
-3. Add all environment variables from `.env.local` in Vercel dashboard
-4. Use a cloud MySQL provider (e.g., [Railway](https://railway.app) or [PlanetScale](https://planetscale.com)) and update `DB_*` variables
 
 ---
 
