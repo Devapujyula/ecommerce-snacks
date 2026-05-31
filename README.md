@@ -6,7 +6,7 @@ A full-stack e-commerce web application for showcasing and selling traditional K
 
 ## 🔗 Live Demo
 
-**[👉 Click here to view the live app](https://ecommerce-snacks-git-main-devapujyulas-projects.vercel.app)**
+**[👉 Click here to view the live app](https://ecommerce-snacks.vercel.app)**
 
 ---
 
